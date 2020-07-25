@@ -1,0 +1,18 @@
+# Put at /var/www/wordpress/.htaccess or TLD
+
+<IfModule mod_rewrite.c>
+RewriteRule ^wp-content/plugins/react-wordpress/(build|public)/(.*) - [L]
+RewriteRule ^wp-content/plugins/react-wordpress/* totally-bogus-erw.php [L]
+</IfModule>
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
